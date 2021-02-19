@@ -39,7 +39,7 @@ def contact():
             message = myform.message.data
         
             flash('Your message has been sent!')
-            return redirect(url_for('contact'))
+            return redirect(url_for('home'))
     return render_template('contact.html',form =myform)
 
 @app.route('/')
