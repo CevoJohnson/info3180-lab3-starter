@@ -32,19 +32,19 @@ def contact():
     myform = MyForm()
     """Render the website's contact page. """
     if request.method == 'POST':
-        if MyForm.validate_on_submit():
+        if myform.validate_on_submit():
             userName = myform.userName.data
             email = myform.email.data
             subject = myform.subject.data
             message = myform.message.data
         
             flash('Your message has been sent!')
-            return redirect(url_for('/'))
+            return redirect(url_for('contact'))
     return render_template('contact.html',form =myform)
 
 @app.route('/')
 def index():
-    msg = Message(myform.subject.data, recipients=(myform.userName.data,
+    msg = Message(myform.subject.data, recipients=(
     "topman-cb7e1a@inbox.mailtrap.io"),sender=[myform.email.data])
     msg.body = myform.message.data
     mail.send(msg)
