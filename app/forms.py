@@ -3,7 +3,7 @@ from wtforms import StringField
 from wtforms.validators import DataRequired, Email
 
 
-class MyForm(FlaskForm):
+class ContactForm(FlaskForm):
     userName = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     subject = StringField('Subject', validators=[DataRequired()])
